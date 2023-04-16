@@ -22,8 +22,8 @@ public class SecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(atr ->
-                        atr.requestMatchers(HttpMethod.GET, "/user/**").hasAuthority("USER"))
-                .authorizeHttpRequests(atm-> atm.requestMatchers(HttpMethod.GET,"/admin/**").hasAuthority("ADMIN"))
+                        atr.requestMatchers(HttpMethod.GET, "/api/user/**").hasAuthority("USER"))
+                .authorizeHttpRequests(atm-> atm.requestMatchers(HttpMethod.GET,"/api/admin/**").hasAuthority("ADMIN"))
                 .authorizeHttpRequests(atm -> atm.requestMatchers("/register/**").permitAll())
                 .authorizeHttpRequests(atr -> atr.anyRequest().hasAuthority("USER"))
                 .httpBasic(Customizer.withDefaults())
