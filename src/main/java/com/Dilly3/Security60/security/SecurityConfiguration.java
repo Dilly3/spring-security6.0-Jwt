@@ -1,4 +1,4 @@
-package com.Dilly3.Security60.configuration;
+package com.Dilly3.Security60.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,6 +38,7 @@ public class SecurityConfiguration {
 
     @Bean
     AuthenticationManager authman(UserDetailsService userDetailsService){
+        System.out.println("in AuthenticationManager ==>");
         DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
         dao.setUserDetailsService(userDetailsService);
         return new ProviderManager(dao);
